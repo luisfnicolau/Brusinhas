@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { Materia, Parlamentar } from '../types';
+import { type Materia, type Parlamentar } from '../types';
 
-axios.defaults.baseURL = 'http://legis.senado.gov.br/dadosabertos';
+axios.defaults.baseURL = 'https://legis.senado.gov.br/dadosabertos';
 
 export async function fetchParlamentares(): Promise<Parlamentar[]> {
     const res = await axios.get('/senador/lista/atual');
