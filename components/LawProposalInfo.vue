@@ -11,7 +11,6 @@ const proposalInfo: Ref<Materia | null> = ref(null);
 
 async function fetchPropositionInfo() {
   const res = await fetchMateria(props.proposalCode);
-  console.log(res);
   proposalInfo.value = res;
 }
 

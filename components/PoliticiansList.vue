@@ -72,8 +72,6 @@ function getVoteBgColor(parlamentar: IdentificacaoParlamentar) {
   if (!votacao) {
     return "bg-gray-400";
   }
-  console.log(votacao);
-  console.log(`bg-${voteStatusMap[votacao.SiglaVoto].color}`);
   return `bg-${voteStatusMap[votacao.SiglaVoto].color}`;
 }
 
