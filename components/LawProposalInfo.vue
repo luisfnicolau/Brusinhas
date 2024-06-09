@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { type Ref, ref } from "vue";
-import { fetchMateria } from "../repository/repository";
+import { fetchMateria } from "../repository/senadores";
 import { type Materia } from "../types";
 
 const props = defineProps<{
@@ -19,7 +19,8 @@ fetchPropositionInfo();
 
 <template>
   <div v-if="proposalInfo" class="grid justify-center my-4">
-    <div class="text-4xl font-bold mx-auto my-2">
+    <div class="text-4xl font-bold mx-auto my-2 flex">
+      <img src="public/icon.webp" width="36px" alt="icone" />
       {{ proposalInfo.IdentificacaoMateria.DescricaoIdentificacaoMateria }}
     </div>
     <div class="grid justify-center border rounded-lg px-5">

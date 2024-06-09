@@ -146,6 +146,25 @@ export interface Voto {
     UrlListaTiposVoto: string;
 }
 
-
-
+export interface Deputado {
+    ideCadastro: string;
+    codOrcamento: string;
+    condicao: string;
+    matricula: string;
+    idParlamentar: string;
+    nome: string;
+    nomeParlamentar: string;
+    urlFoto: string;
+    sexo: string;
+    uf: string;
+    partido: string;
+    gabinete: string;
+    anexo: string;
+    fone: string;
+    email: string;
+    comissoes: {
+        titular: {};
+        suplente: {};
+    };
+}
 

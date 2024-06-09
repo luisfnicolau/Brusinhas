@@ -3,7 +3,7 @@ import { type Ref, ref, computed } from "vue";
 import {
   fetchMateriaVotacoes,
   fetchParlamentares,
-} from "../repository/repository";
+} from "../repository/senadores";
 import { type Voto, type IdentificacaoParlamentar } from "../types";
 import DropdownMenu from "./DropdownMenu.vue";
 import { brazilianStatesMap, voteStatusMap } from "../constants";
@@ -69,10 +69,7 @@ function getVoteBgColor(parlamentar: IdentificacaoParlamentar) {
       v.IdentificacaoParlamentar.CodigoParlamentar ===
       parlamentar.CodigoParlamentar
   );
-  if (!votacao) {
-    return "bg-gray-400";
-  }
-  return `bg-${voteStatusMap[votacao.SiglaVoto].color}`;
+  return votacao?.SiglaVoto;
 }
 
 fetchPoliticians();
@@ -115,7 +112,13 @@ fetchVotes();
             Voto:
             <div
               class="text-white px-1 rounded-md"
-              :class="getVoteBgColor(parlamentar)"
+              :class="
+                getVoteBgColor(parlamentar) === 'Sim'
+                  ? 'bg-green-500'
+                  : getVoteBgColor(parlamentar) === 'Presidente (art. 51 RISF)'
+                  ? 'bg-blue-700'
+                  : 'bg-gray-700'
+              "
             >
               {{ getVotacao(parlamentar) }}
             </div>
