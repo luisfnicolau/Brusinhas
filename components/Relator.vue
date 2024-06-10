@@ -77,7 +77,7 @@ getRelator();
       </div>
       <div class="grid gap-3 justify-center text-sm mt-6">
         <a
-          :href="`tel:${relator.ultimoStatus.gabinete.telefone}`"
+          :href="`${redeSocial}`"
           v-for="(redeSocial, index) in relator.redeSocial"
           class="px-1 rounded-md text-[#1a9fcb] mx-1 flex items-center gap-1"
         >
