@@ -75,11 +75,11 @@ getRelator();
           {{ relator.ultimoStatus.gabinete.telefone }}
         </a>
       </div>
-      <div class="flex justify-center text-sm mt-2">
+      <div class="grid gap-3 justify-center text-sm mt-6">
         <a
           :href="`tel:${relator.ultimoStatus.gabinete.telefone}`"
           v-for="(redeSocial, index) in relator.redeSocial"
-          class="outline outline-[#1a9fcb] px-1 rounded-md text-[#1a9fcb] mx-1 flex items-center gap-1"
+          class="px-1 rounded-md text-[#1a9fcb] mx-1 flex items-center gap-1"
         >
           <svg
             v-if="index === 0"
