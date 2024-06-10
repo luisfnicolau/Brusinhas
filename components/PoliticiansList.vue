@@ -72,18 +72,28 @@ function getVoteBgColor(parlamentar: IdentificacaoParlamentar) {
   return votacao?.SiglaVoto;
 }
 
+function scrollToVote() {
+  const voteElement = document.getElementById("vote");
+  setTimeout(() => {
+    voteElement?.scrollIntoView({ behavior: "smooth" });
+  }, 100);
+}
+
 fetchPoliticians();
 fetchVotes();
 </script>
 
 <template>
   <div class="mt-12">
-    <div class="flex justify-center font-bold text-2xl">Votação</div>
+    <div class="flex justify-center font-bold text-2xl" id="vote">Votação</div>
     <div class="flex justify-center my-2">
       <DropdownMenu
         :name="selectedState?.value || 'Meu estado'"
         :options="statesFilterOption"
-        @select="selectedState = $event"
+        @select="
+          selectedState = $event;
+          scrollToVote();
+        "
       ></DropdownMenu>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3">
